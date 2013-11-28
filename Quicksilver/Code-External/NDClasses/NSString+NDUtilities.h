@@ -149,7 +149,7 @@
 	@param range The range to limit the search to.
 	@result Returns the index of the character or <tt>NSNotFound</tt> if not found.
  */
-- (unsigned int)indexOfCharacter:(unichar)character range:(NSRange)range;
+- (NSUInteger)indexOfCharacter:(unichar)character range:(NSRange)range;
 
 
 /*!
@@ -159,7 +159,7 @@
 	@param character The character to look for.
 	@result Returns the index of the character or <tt>NSNotFound</tt> if not found.
  */
-- (unsigned int)indexOfCharacter:(unichar)character;
+- (NSUInteger)indexOfCharacter:(unichar)character;
 
 /*!
 	@method containsCharacter:
@@ -332,7 +332,7 @@
 	@param defaultValue The value returned if no match is found.
 	@result The index of th matching value.
  */
-- (unsigned int)indexOfMatchingStringInList:(NSString **)array defaultValue:(unsigned int)defaultValue;
+- (NSUInteger)indexOfMatchingStringInList:(NSString **)array defaultValue:(NSUInteger)defaultValue;
 
 enum
 {
@@ -383,8 +383,8 @@ enum
 + (NSString *)stringFromDictionary:(NSDictionary *)aDictionary withFormat:(NSString *)aFormat, ...;
 + (NSString *)stringFromDictionary:(NSDictionary *)aDictionary withFormat:(NSString *)aFormat arguments:(va_list)anArguments;
 
-- (unsigned int)indexOfCharacater:(unichar)aChar;
-- (unsigned int)indexOfCharacater:(unichar)aChar options:(NSStringCompareOptions)mask;
+- (NSUInteger)indexOfCharacater:(unichar)aChar;
+- (NSUInteger)indexOfCharacater:(unichar)aChar options:(NSStringCompareOptions)mask;
 /*!
 	@method indexOfCharacater:
 	@abstract Find the index of a chartacter.
@@ -413,7 +413,7 @@ enum
 	@param range range The range to contrain the search to.
 	@result The index of the character or <tt>NSNotFound</tt> if the character</tt>
  */
-- (unsigned int)indexOfCharacater:(unichar)aChar options:(NSStringCompareOptions)mask range:(NSRange)range;
+- (NSUInteger)indexOfCharacater:(unichar)aChar options:(NSStringCompareOptions)mask range:(NSRange)range;
 
 /*!
 	@method componentsSeparatedByString:withOpeningQuote:closingQuote:singleQuote:

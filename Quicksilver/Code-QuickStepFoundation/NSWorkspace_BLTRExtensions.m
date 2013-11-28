@@ -109,8 +109,8 @@ bool _LSCopyAllApplicationURLs(NSArray **array);
 
 - (BOOL)PSN:(ProcessSerialNumber *)psn forApplication:(NSDictionary *)theApp {
 	if (theApp){
-		(*psn).highLongOfPSN = [[theApp objectForKey:@"NSApplicationProcessSerialNumberHigh"] longValue];
-		(*psn).lowLongOfPSN = [[theApp objectForKey:@"NSApplicationProcessSerialNumberLow"] longValue];
+		(*psn).highLongOfPSN = [[theApp objectForKey:@"NSApplicationProcessSerialNumberHigh"] intValue];
+		(*psn).lowLongOfPSN = [[theApp objectForKey:@"NSApplicationProcessSerialNumberLow"] intValue];
 		return YES;
 	}
 	return NO;
@@ -317,7 +317,7 @@ bool _LSCopyAllApplicationURLs(NSArray **array);
 		[self openURL:bundleURL];
 }
 
-- (NSString *)nameForPID:(NSInteger)pid {
+- (NSString *)nameForPID:(pid_t)pid {
 	ProcessSerialNumber psn;
 	if (!GetProcessForPID(pid, &psn) ) {
 		CFStringRef nameRef = nil;
@@ -329,7 +329,7 @@ bool _LSCopyAllApplicationURLs(NSArray **array);
 	return nil;
 }
 
-- (NSString *)pathForPID:(NSInteger)pid {
+- (NSString *)pathForPID:(pid_t)pid {
 	ProcessSerialNumber psn;
 	FSRef ref;
 	if (!GetProcessForPID(pid, &psn) && !GetProcessBundleLocation(&psn, &ref))
